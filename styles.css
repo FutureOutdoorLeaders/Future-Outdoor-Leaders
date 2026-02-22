@@ -1,0 +1,161 @@
+:root{
+  /* Woods palette */
+  --bg:#07120a;                 /* deep forest base (NOT blue) */
+  --text:#eaf0ff;
+  --muted:#b7c6bf;
+  --line:rgba(255,255,255,.12);
+
+  --wood:#2F5D3A;               /* woodland green */
+  --moss:#6B8F5A;               /* moss/sage */
+
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+  --max: 980px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text);
+
+  /* GREEN background (base + green glows) */
+  background:
+    radial-gradient(1200px 700px at 15% -10%, rgba(47,93,58,.55), transparent 60%),
+    radial-gradient(1000px 600px at 85% 0%, rgba(107,143,90,.35), transparent 60%),
+    var(--bg);
+
+  line-height:1.6;
+}
+a{color:inherit}
+
+/* Layout */
+.container{max-width:var(--max); margin:0 auto; padding:0 18px}
+.block{padding:56px 0}
+h1,h2{line-height:1.15; margin:0 0 10px}
+h1{font-size: clamp(30px, 4vw, 52px)}
+h2{font-size: clamp(22px, 2.2vw, 30px)}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(7,18,10,.65);     /* woods tint */
+  border-bottom: 1px solid var(--line);
+}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 0; gap:12px;
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+.mark{
+  width:38px; height:38px; border-radius:12px;
+  display:grid; place-items:center;
+  border:1px solid var(--line);
+  background: linear-gradient(135deg, rgba(47,93,58,.40), rgba(107,143,90,.28));
+  font-weight:800;
+}
+
+/* Nav */
+.nav{display:flex; gap:14px}
+.nav a{color:var(--muted); text-decoration:none}
+.nav a:hover{color:var(--text)}
+@media (max-width:720px){
+  .nav{display:none;}
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 14px; border-radius:999px;
+  text-decoration:none; font-weight:700;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+
+/* ✅ IMPORTANT FIX: matches class="btn btn-primary" */
+.btn-primary{
+  border-color: rgba(47,93,58,.70);
+  background: linear-gradient(135deg, rgba(47,93,58,.36), rgba(107,143,90,.24));
+}
+.btn-ghost{
+  background: rgba(255,255,255,.03);
+}
+
+/* Hero (center the first section) */
+.hero{
+  min-height: calc(100vh - 64px);
+  display:grid;
+  place-items:center;
+  padding: 36px 0 54px;
+  text-align:center;
+}
+.hero-inner{max-width: 820px;}
+.eyebrow{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:12px;
+}
+.lead{
+  margin: 0 auto 14px;
+  max-width: 75ch;
+  color: var(--muted);
+  font-size: clamp(19px, 1.3vw, 22px);
+}
+.cta{
+  display:flex; gap:10px; flex-wrap:wrap;
+  justify-content:center;
+  margin-top: 16px;
+}
+
+/* Panels */
+.panel{
+  border:1px solid rgba(47,93,58,.28);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.04);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Contact */
+.contact{display:grid; gap:14px}
+.row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--line);
+  padding: 18px 0 26px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer-inner{display:flex; justify-content:center}
+
+/* Disabled links */
+[aria-disabled="true"]{opacity:.65; pointer-events:none; text-decoration:none}
+
+/* Stagger mission paragraphs left-to-right */
+.step{
+  text-align: left;
+}
+
+.step-1{ margin-left: -10; }
+.step-2{ margin-left: 30px; }
+.step-3{ margin-left: 50px; }
+
+/* Keep it readable on phones */
+@media (max-width: 600px){
+  .step, .step-1, .step-2, .step-3{
+    margin-left: 0 !important;
+    text-align: center;
+  }
+}
