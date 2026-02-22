@@ -148,9 +148,9 @@ p{margin:0 0 12px}
   text-align: left;
 }
 
-.step-1{ margin-left: -10; }
-.step-2{ margin-left: 30px; }
-.step-3{ margin-left: 50px; }
+.step-1{ margin-left: 0px; }
+.step-2{ margin-left: 0px; }
+.step-3{ margin-left: 0px; }
 
 /* Keep it readable on phones */
 @media (max-width: 600px){
